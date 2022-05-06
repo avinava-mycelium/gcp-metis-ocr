@@ -1,0 +1,85 @@
+replicaCount: 1
+appName: chainlink-node
+project: avian-direction-235610
+
+deployment:
+  name: chainlink-deployment
+
+container:
+  name: chainlink
+  port: 6688
+  configEnv: node-env
+
+loadbalancer:
+  port: 8068
+  ip: 34.123.246.74
+
+securityContext:
+  userId: 2000
+
+image:
+  repository: smartcontract/chainlink:1.4.0-nonroot
+  pullPolicy: IfNotPresent
+
+volume:
+  apiMountName: api-volume
+  apiMountPath: /chainlink/.api
+  apiMountSubPath: .api
+  apiSecretName: api-env
+  passwordMountName: password-volume
+  passwordMountPath: /chainlink/.password
+  passwordMountSubPath: .password
+  passwordSecretName: password-env
+
+secrets:
+  extSecretsEnv: external-secrets-env
+  extSecretsApi: external-secrets-api
+  extSecretsApiKey1: .api
+  extSecretsApiKey2: .password
+  extSecretsStoreEnv: external-secret-store-env
+  extSecretsStoreApi: external-secret-store-api
+  extGCPSecretsStoreApi: CHAINLINK_OCR_API
+  extGCPSecretsStorePassword: CHAINLINK_OCR_PASSWORD
+  gcpsmSecretEnv: gcpsm-secret-env
+  gcpsmSecretApi: gcpsm-secret-api
+  secretAccessCredentials: secret-access-credentials
+
+configMap:
+  ocr: 
+    CHAINLINK_TLS_PORT: 0
+    ETH_URL: wss://andromeda-ws.metis.io
+    ETH_HTTP_URL: https://andromeda.metis.io/?owner=1088
+    ROOT: /tmp/chainlink
+    SECURE_COOKIES: 'false'
+    ALLOW_ORIGINS: '*'
+    FEATURE_OFFCHAIN_REPORTING: 'true'
+    ETH_CHAIN_ID: 1088
+    ETH_SECONDARY_URLS: https://nop:sppFRFaNtD9qUQgNHoK6LUdFwuHGhv@multichain.broadcast-mirror.chain.link/?chain_id=1088
+    DEFAULT_HTTP_ALLOW_UNRESTRICTED_NETWORK_ACCESS: true
+    P2P_LISTEN_PORT: 8068
+    P2P_ANNOUNCE_PORT: 8068
+    P2P_ANNOUNCE_IP: 34.123.246.74
+    LOG_FILE_DIR: /tmp/chainlink
+
+
+configMapSecrets:
+  DATABASE_URL: DATABASE_URL
+  LINK_CONTRACT_ADDRESS: LINK_CONTRACT_ADDRESS
+  OCR_KEY_BUNDLE_ID: OCR_KEY_BUNDLE_ID
+  P2P_PEER_ID: P2P_PEER_ID
+  OCR_TRANSMITTER_ADDRESS: OCR_TRANSMITTER_ADDRESS
+  P2P_BOOTSTRAP_PEERS: P2P_BOOTSTRAP_PEERS
+  EXPLORER_ACCESS_KEY: EXPLORER_ACCESS_KEY
+  EXPLORER_SECRET: EXPLORER_SECRET
+  EXPLORER_URL: EXPLORER_URL
+
+remoteConfigMapSecrets:
+  DATABASE_URL: METIS_OCR_DATABASE_URL
+  LINK_CONTRACT_ADDRESS: METIS_OCR_LINK_CONTRACT_ADDRESS
+  OCR_KEY_BUNDLE_ID: METIS_OCR_KEY_BUNDLE_ID
+  P2P_PEER_ID: METIS_OCR_P2P_PEER_ID
+  OCR_TRANSMITTER_ADDRESS: METIS_OCR_TRANSMITTER_ADDRESS
+  P2P_BOOTSTRAP_PEERS: METIS_OCR_P2P_BOOTSTRAP_PEERS
+  EXPLORER_ACCESS_KEY: METIS_OCR_EXPLORER_ACCESS_KEY
+  EXPLORER_SECRET: METIS_OCR_EXPLORER_SECRET
+  EXPLORER_URL: METIS_OCR_EXPLORER_URL

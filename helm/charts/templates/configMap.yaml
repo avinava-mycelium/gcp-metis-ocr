@@ -1,0 +1,21 @@
+apiVersion: v1
+data:
+  CHAINLINK_TLS_PORT: "{{.Values.configMap.ocr.CHAINLINK_TLS_PORT}}"
+  ETH_URL: "{{.Values.configMap.ocr.ETH_URL}}"
+  ETH_HTTP_URL: "{{.Values.configMap.ocr.ETH_HTTP_URL}}"
+  ROOT: "{{.Values.configMap.ocr.ROOT}}"
+  SECURE_COOKIES: "{{.Values.configMap.ocr.SECURE_COOKIES}}"
+  ALLOW_ORIGINS: "{{.Values.configMap.ocr.ALLOW_ORIGINS}}"
+  FEATURE_OFFCHAIN_REPORTING: "{{.Values.configMap.ocr.FEATURE_OFFCHAIN_REPORTING}}"
+  ETH_CHAIN_ID: "{{.Values.configMap.ocr.ETH_CHAIN_ID}}"
+  ETH_SECONDARY_URLS: "{{.Values.configMap.ocr.ETH_SECONDARY_URLS}}"
+  DEFAULT_HTTP_ALLOW_UNRESTRICTED_NETWORK_ACCESS: "{{.Values.configMap.ocr.DEFAULT_HTTP_ALLOW_UNRESTRICTED_NETWORK_ACCESS}}"
+  P2P_LISTEN_PORT: "{{.Values.configMap.ocr.P2P_LISTEN_PORT}}"
+  P2P_ANNOUNCE_PORT: "{{.Values.configMap.ocr.P2P_ANNOUNCE_PORT}}"
+  P2P_ANNOUNCE_IP: "{{.Values.configMap.ocr.P2P_ANNOUNCE_IP}}"
+  LOG_FILE_DIR: "{{.Values.configMap.ocr.LOG_FILE_DIR}}"
+
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: {{ .Values.container.configEnv }}
