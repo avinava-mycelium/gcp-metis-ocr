@@ -60,6 +60,7 @@ configMap:
     P2P_ANNOUNCE_PORT: 8068
     P2P_ANNOUNCE_IP: 34.123.246.74
     LOG_FILE_DIR: /tmp/chainlink
+    NODE_NO_NEW_HEADS_THRESHOLD: '6m'
 
 
 configMapSecrets:

@@ -14,6 +14,7 @@ data:
   P2P_ANNOUNCE_PORT: "{{.Values.configMap.ocr.P2P_ANNOUNCE_PORT}}"
   P2P_ANNOUNCE_IP: "{{.Values.configMap.ocr.P2P_ANNOUNCE_IP}}"
   LOG_FILE_DIR: "{{.Values.configMap.ocr.LOG_FILE_DIR}}"
+  NODE_NO_NEW_HEADS_THRESHOLD: "{{.Values.configMap.ocr.NODE_NO_NEW_HEADS_THRESHOLD}}"
 
 kind: ConfigMap
 metadata:
