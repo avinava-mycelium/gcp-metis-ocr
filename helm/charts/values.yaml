@@ -18,7 +18,7 @@ securityContext:
   userId: 2000
 
 image:
-  repository: smartcontract/chainlink:1.4.0-nonroot
+  repository: smartcontract/chainlink:1.4.1-nonroot
   pullPolicy: IfNotPresent
 
 volume:
