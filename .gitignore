@@ -32,6 +32,10 @@ Session.vim
 *.tfstate
 *.tfstate.*
 
+# .tfstate files
+*.tfvars
+*.tfvars.*
+
 # .history files
 .history
 
