@@ -51,7 +51,8 @@ crash.log
 **/.kitchen.local.yml
 **/Gemfile.lock
 
-test/fixtures/shared/terraform.tfvars
+k8-cluster-gcp/terraform.tfvars
+postgres-terraform/terraform.tfvars
 
 test/integration/gcloud/config.sh
 test/integration/tmp
