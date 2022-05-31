@@ -53,6 +53,7 @@ crash.log
 
 k8-cluster-gcp/terraform.tfvars
 postgres-terraform/terraform.tfvars
+target/
 
 test/integration/gcloud/config.sh
 test/integration/tmp
