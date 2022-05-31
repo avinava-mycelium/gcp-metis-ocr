@@ -18,7 +18,6 @@ resource "google_sql_database_instance" "master" {
     }
      ip_configuration {
                 ipv4_enabled = var.ipv4_enabled
-                # private_network = "projects/avian-direction-235610/global/networks/default"
                 require_ssl  = var.require_ssl
 
                 authorized_networks {
@@ -29,15 +28,15 @@ resource "google_sql_database_instance" "master" {
   }
 }
 resource "google_sql_database" "database" {
-  name     = var.db_name
+  name    = local.db-name
   project = var.project
   instance = google_sql_database_instance.master.name
 }
 
 resource "google_sql_user" "users" {
-  name      = var.sql_user_name
+  name      = local.sql_user_name
   project   = var.project
   instance  = google_sql_database_instance.master.name
-  host      = var.sql_user_host
-  password  = var.sql_user_password
+  host      = local.sql_user_host
+  password  = local.sql_user_password
 }

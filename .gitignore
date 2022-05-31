@@ -32,9 +32,6 @@ Session.vim
 *.tfstate
 *.tfstate.*
 
-# .tfvars files
-*/terraform.tfvars
-
 # .history files
 .history
 
@@ -50,10 +47,6 @@ crash.log
 **/.kitchen
 **/.kitchen.local.yml
 **/Gemfile.lock
-
-k8-cluster-gcp/terraform.tfvars
-postgres-terraform/terraform.tfvars
-target/
 
 test/integration/gcloud/config.sh
 test/integration/tmp
