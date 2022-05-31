@@ -33,7 +33,7 @@ Session.vim
 *.tfstate.*
 
 # .tfvars files
-**/terraform.tfvars
+*/terraform.tfvars
 
 # .history files
 .history
