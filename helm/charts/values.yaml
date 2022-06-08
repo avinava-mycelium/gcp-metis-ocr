@@ -18,7 +18,7 @@ securityContext:
   userId: 2000
 
 image:
-  repository: smartcontract/chainlink:1.4.1-nonroot
+  repository: public.ecr.aws/chainlink/chainlink:1.5.0-rc3-nonroot
   pullPolicy: IfNotPresent
 
 volume:
@@ -48,13 +48,14 @@ configMap:
   ocr: 
     CHAINLINK_TLS_PORT: 0
     ETH_URL: wss://andromeda-ws.metis.io
-    ETH_HTTP_URL: https://andromeda.metis.io/?owner=1088
+    #ETH_HTTP_URL: https://andromeda.metis.io/?owner=1088
+    ETH_HTTP_URL: http://35.223.200.102:8545
     ROOT: /tmp/chainlink
     SECURE_COOKIES: 'false'
     ALLOW_ORIGINS: '*'
     FEATURE_OFFCHAIN_REPORTING: 'true'
     ETH_CHAIN_ID: 1088
-    ETH_SECONDARY_URLS: https://nop:sppFRFaNtD9qUQgNHoK6LUdFwuHGhv@multichain.broadcast-mirror.chain.link/?chain_id=1088
+    ETH_SECONDARY_URLS: http://35.202.146.80:8545,https://nop:sppFRFaNtD9qUQgNHoK6LUdFwuHGhv@multichain.broadcast-mirror.chain.link/?chain_id=1088
     DEFAULT_HTTP_ALLOW_UNRESTRICTED_NETWORK_ACCESS: true
     P2P_LISTEN_PORT: 8068
     P2P_ANNOUNCE_PORT: 8068
@@ -62,6 +63,34 @@ configMap:
     LOG_FILE_DIR: /tmp/chainlink
     DATABASE_LOCKING_MODE: lease
     NODE_NO_NEW_HEADS_THRESHOLD: '6m'
+    # EVM_NODES: '
+    #   [
+    #       {
+    #           "name": "primary_1088_1",
+    #           "evmChainId": "1088",
+    #           "wsUrl": "wss://andromeda-ws.metis.io",
+    #           "sendOnly": false
+    #       },
+    #       {
+    #           "name": "sendonly_1088_1",
+    #           "evmChainId": "1088",
+    #           "httpUrl": "http://35.223.200.102:8545",
+    #           "sendOnly": true
+    #       },
+    #       {
+    #           "name": "sendonly_1088_2",
+    #           "evmChainId": "1088",
+    #           "httpUrl": "http://35.202.146.80:8545",
+    #           "sendOnly": true
+    #       },
+    #       {
+    #           "name": "sendonly_1088_3",
+    #           "evmChainId": "1088",
+    #           "httpUrl": "https://nop:sppFRFaNtD9qUQgNHoK6LUdFwuHGhv@multichain.broadcast-mirror.chain.link/?chain_id=1088",
+    #           "sendOnly": true
+    #       }
+    #   ]
+    #   '
 
 
 configMapSecrets:
